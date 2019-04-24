@@ -61,7 +61,7 @@ logs/aaaaammddhh/, por lo que solo tendríamos que ejecutar cada hora un script,
         line = filelog.readline()
 ```
 
-> Donde se llama a la función "addHosts" que parsea los campos de cada línea, y que implementa la lógica demandada en el enunciado:
+> Donde se llama a la función "addHosts" que parsea los campos de cada línea, y que implementa la lógica demandada en el enunciado. Además, devuelve si es el momento de mostrar los resultados en pantalla (si ha pasado una hora):
 
 1. Se añade a una lista todos los hosts servidores donde se ha conectado el host cliente introducido como parámetro dentro de la última hora.
 2. Se añade a una lista todos los hosts clientes que han conectado con el host servidor introducido como parámetro dentro de la última hora.
