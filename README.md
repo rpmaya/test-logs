@@ -15,9 +15,10 @@ logs/aaaaammddhh/, por lo que solo tendríamos que ejecutar cada hora un script,
 2. SELECT host_server FROM <PARAMETER_0> WHERE hosts_clients = <PARAMETER_2>
 3. SELECT host_client, COUNT(*) as cnt FROM <PARAMETER_0> GROUP BY host_client ORDER BY cnt DESC LIMIT 1; 
 ```
-> Donde <PARAMETER_0>: Directorio fuente: logs/aaaaammddhh
-        <PARAMETER_1>: El hostname donde se conectan (server) y por el que buscar clientes
-        <PARAMETER_2>: El hostname que se conecta (client) y por el que buscar servidores
+> Donde 
+1. <PARAMETER_0>: Directorio fuente: logs/aaaaammddhh
+2. <PARAMETER_1>: El hostname donde se conectan (server) y por el que buscar clientes
+3. <PARAMETER_2>: El hostname que se conecta (client) y por el que buscar servidores
 
 > Pasamos a analizar la solución de Streaming realizada en Python, donde podemos ver el código [aquí](https://github.com/rpmaya/test-logs/blob/master/src/logs.py):
 
