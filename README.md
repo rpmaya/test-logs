@@ -18,7 +18,7 @@ logs/aaaaammddhh/, por lo que solo tendríamos que ejecutar cada hora un script,
 > Donde 
 1. <PARAMETER_0>: Directorio fuente: logs/aaaaammddhh
 2. <PARAMETER_1>: El hostname donde se conectan (server) y por el que buscar clientes
-3. <PARAMETER_2>: El hostname que se conecta (client) y por el que buscar servidores
+3.<PARAMETER_2>: El hostname que se conecta (client) y por el que buscar servidores
 
 > Pasamos a analizar la solución de Streaming realizada en Python, donde podemos ver el código [aquí](https://github.com/rpmaya/test-logs/blob/master/src/logs.py):
 
@@ -35,7 +35,7 @@ logs/aaaaammddhh/, por lo que solo tendríamos que ejecutar cada hora un script,
 > El script no finaliza, y cada hora imprime por la salida estándar los resultados de la última hora.
 > La primera vez que se ejecuta posicionará el cursor (seek) en el primer registro que encuentre con timestamp menor o igual a la fecha actual menos 1h y 5 minutos (debido al margen de error descrito en el enunciado).
 ```
-follow = True
+    follow = True
     while follow:
         line = filelog.readline()
         if not line:
@@ -47,7 +47,7 @@ follow = True
 ```
 > A partir de dicho registro iremos leyendo uno a uno en un bucle infinito, tanto los ya registrados como los que puedan ir registrándose.
 ```
-while True:
+    while True:
         if not line:
             if first_exec:
                 print_results(argv[1], argv[2])
