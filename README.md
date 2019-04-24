@@ -19,6 +19,9 @@ logs/<aaaaammddhh>/, por lo que solo tendríamos que ejecutar cada hora un scrip
         <PARAMETER_1>: El hostname donde se conectan (server) y por el que buscar clientes
         <PARAMETER_2>: El hostname que se conecta (client) y por el que buscar servidores
 
+> Pasamos a analizar la solución de Streaming realizada en Python, donde podemos ver el código [aquí](https://github.com/rpmaya/test-logs/blob/master/src/logs.py):
+> 
+
 
 
 
