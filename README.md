@@ -11,9 +11,9 @@ logs/<aaaaammddhh>/, por lo que solo tendríamos que ejecutar cada hora un scrip
 
 > Las queries serían de tipo:
 ```
-1. SELECT hosts_client FROM <PARAMETER_0> WHERE hosts_servers = <PARAMETER_1>
-2. SELECT hosts_server FROM <PARAMETER_0> WHERE hosts_clients = <PARAMETER_2>
-3. SELECT hosts_client, COUNT(*) as cnt FROM <PARAMETER_0> GROUP BY hosts_client ORDER BY cnt DESC LIMIT 1; 
+1. SELECT host_client FROM <PARAMETER_0> WHERE hosts_servers = <PARAMETER_1>
+2. SELECT host_server FROM <PARAMETER_0> WHERE hosts_clients = <PARAMETER_2>
+3. SELECT host_client, COUNT(*) as cnt FROM <PARAMETER_0> GROUP BY host_client ORDER BY cnt DESC LIMIT 1; 
 ```
 > Donde <PARAMETER_0>: Directorio fuente: logs/<aaaaammddhh>
         <PARAMETER_1>: El hostname donde se conectan (server) y por el que buscar clientes
