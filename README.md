@@ -86,7 +86,7 @@ def addHosts(line, host_cl, host_sr, ts0):
     return  tsc - ts0 >= TIME_TO_PRINT
 ```
 
-> Por último, se ejecuta la función "print_results" para mostrar por pantalla los resultados cuando corresponda.
+> Por último, se ejecuta la función "print_results" para mostrar por pantalla los resultados cuando corresponda: en la primera ejecución y cada hora.
 1. Se muestra la lista de servidores a la que se ha conectado el cliente dado.
 2. Se muestra la lista de clientes a que se han conectado al servidor dado.
 3. Se muestra el cliente con mayor número de conexiones realizadas
