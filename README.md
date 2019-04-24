@@ -31,7 +31,30 @@ logs/<aaaaammddhh>/, por lo que solo tendríamos que ejecutar cada hora un scrip
 # python logs.py <LOG_PATH> <HOST_CLI> <HOST_SRV>
 ```
 
-
-
-
+> El script no finaliza, y cada hora imprime por la salida estándar los resultados de la última hora.
+> La primera vez que se ejecuta posicionará el cursor (seek) en el primer registro que encuentre con timestamp menor o igual a la fecha actual menos 1h y 5 minutos (debido al margen de error descrito en el enunciado).
+```
+follow = True
+    while follow:
+        line = filelog.readline()
+        if not line:
+            follow = False
+        else:
+            ts = float(line.split(" ")[0])
+            diff = (ts0 - ts) / 60
+            follow = diff > SEEK
+```
+> A partir de dicho registro iremos leyendo uno a uno en un bucle infinito, tanto los ya registrados como los que puedan ir registrándose.
+```
+while True:
+        if not line:
+            if first_exec:
+                print_results(argv[1], argv[2])
+                first_exec = False
+            time.sleep(0.2)
+        elif addHosts(line, argv[1], argv[2], ts0):
+            print_results(argv[1], argv[2])
+            ts0 = time.time()
+        line = filelog.readline()
+```
 
