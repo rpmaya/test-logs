@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, time, os
+import sys, time, operator
 
 clients = []
 servers = []
@@ -8,6 +8,11 @@ counter = {}
 
 TIME_TO_PRINT = 60
 SEEK = TIME_TO_PRINT + 5
+
+def empty_list():
+    clients = []
+    servers = []
+    counter = {}
 
 def print_results(host_cl, host_sr):
     print("")
@@ -17,11 +22,9 @@ def print_results(host_cl, host_sr):
     print("Host Server " + host_sr + " connected from: ")
     print(*clients)
     print("")
-    print("Clients' connections:")
-    for keys, values in counter.items():
-        print(keys + ":")
-        print(values)
-
+    print("Max client connections:")
+    print(max(counter,items(), key=operator.itemgetter(1))[0])
+    
 
 def addHosts(line, host_cl, host_sr, ts0):
     fields = line.split(" ")
@@ -58,10 +61,12 @@ def main(argv):
         if not line:
             if first_exec:
                 print_results(argv[1], argv[2])
+                empty_list()
                 first_exec = False
             time.sleep(0.2)
         elif addHosts(line, argv[1], argv[2], ts0):
             print_results(argv[1], argv[2])
+            empty_list()
             ts0 = time.time()
         line = filelog.readline()
 
